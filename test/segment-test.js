@@ -25,11 +25,17 @@ if (typeof require !== 'undefined') { // Execution in node
 describe('Segment Class', () => {
   describe('Properties', () => {
     const START_POINT = new PointOnSegmentTest();
-    const MY_SEGMENT = new SegmentOnSegmentTest(START_POINT);
+    const END_POINT = new PointOnSegmentTest();
+    const MY_SEGMENT = new SegmentOnSegmentTest(START_POINT, END_POINT);
 
     it('Segment has a startPoint', () => {
       expectOnSegmentTest(MY_SEGMENT).to.have.property('startPoint');
       expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.deep.equal(START_POINT);
+    });
+
+    it('Segment has a endPoint', () => {
+      expectOnSegmentTest(MY_SEGMENT).to.have.property('endPoint');
+      expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.deep.equal(END_POINT);
     });
   });
 });
