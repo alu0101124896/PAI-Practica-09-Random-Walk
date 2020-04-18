@@ -22,5 +22,10 @@ if (typeof require !== 'undefined') { // Execution in node
 describe('ClassDirectionOnDirectionTest Class', () => {
   describe('Default properties', () => {
     const MY_DIRECTION = new ClassDirectionOnDirectionTest();
+
+    it('ClassDirectionOnDirectionTest has a xDir', () => {
+      expectOnDirectionTest(MY_DIRECTION).to.have.property('xDir');
+      expectOnDirectionTest(MY_DIRECTION.xDir).to.be.a('number');
+    });
   });
 });
