@@ -10,12 +10,15 @@
 
 "use strict";
 
-// let PointOnSegmentClass;
-// if (typeof require !== 'undefined') { // Execution in node
-//   PointOnSegmentClass = require('../src/point.js').Point;
-// } else { // Execution in browser
-//   PointOnSegmentClass = Point;
-// }
+let PointOnSegmentClass;
+if (typeof require !== 'undefined') { // Execution in node
+  PointOnSegmentClass = require('./point.js').Point;
+} else { // Execution in browser
+  PointOnSegmentClass = Point;
+}
+
+const RED_SEGMENT = 'red';
+const ROUND_SEGMENT = 'round'
 
 /**
  * @description Class representing a segment
@@ -24,9 +27,36 @@
  */
 class Segment {
 
+  /**
+   * @description Creates an instance of a segment.
+   *
+   * @param {Point} startPoint - Starting point of the segment
+   * @param {Point} endPoint - Ending point of the segment
+   * @memberof Segment
+   */
   constructor(startPoint, endPoint) {
     this.startPoint = startPoint;
     this.endPoint = endPoint;
+  }
+
+  /**
+   * @description Function that draws the segment
+   *
+   * @param {Grid} grid - Grid where the segment is located
+   * @param {*} CONTEXT - Canvas context
+   * @memberof Segment
+   */
+  /* istanbul ignore next */
+  draw(grid, CONTEXT) {
+    CONTEXT.beginPath();
+    CONTEXT.strokeStyle = RED_SEGMENT;
+    CONTEXT.lineWidth = grid.stepLenght / 4;
+    CONTEXT.lineCap = ROUND_SEGMENT;
+    CONTEXT.moveTo(this.startPoint.xCoord * grid.stepLenght,
+      this.startPoint.yCoord * grid.stepLenght);
+    CONTEXT.lineTo(this.endPoint.xCoord * grid.stepLenght,
+      this.endPoint.yCoord * grid.stepLenght);
+    CONTEXT.stroke();
   }
 }
 

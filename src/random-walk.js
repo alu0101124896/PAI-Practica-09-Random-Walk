@@ -12,29 +12,30 @@
 "use strict";
 
 let PointOnRandomWalk;
+let SegmentOnRandomWalk;
 let DirectionOnRandomWalk;
 let GridOnRandomWalk;
 if (typeof require !== 'undefined') { // Execution in node
-  PointOnRandomWalk = require('../src/direction.js').Point;
-  DirectionOnRandomWalk = require('../src/direction.js').Direction;
-  GridOnRandomWalk = require('../src/grid.js').Grid;
+  PointOnRandomWalk = require('./point.js').Point;
+  SegmentOnRandomWalk = require('./segment.js').Segment;
+  DirectionOnRandomWalk = require('./direction.js').Direction;
+  GridOnRandomWalk = require('./grid.js').Grid;
 } else { // Execution in browser
   PointOnRandomWalk = Point;
+  SegmentOnRandomWalk = Segment;
   DirectionOnRandomWalk = Direction;
   GridOnRandomWalk = Grid;
 }
 
-const RED_SEGMENT = 'red';
-const ROUND_SEGMENT = 'round'
-
-function drawSegment(startPoint, endPoint, grid, CONTEXT) {
-  CONTEXT.beginPath();
-  CONTEXT.strokeStyle = RED_SEGMENT;
-  CONTEXT.lineWidth = grid.stepLenght / 4;
-  CONTEXT.lineCap = ROUND_SEGMENT;
-  CONTEXT.moveTo(startPoint.xCoord, startPoint.yCoord);
-  CONTEXT.lineTo(endPoint.xCoord, endPoint.yCoord);
-  CONTEXT.stroke();
+/**
+ * @description Function that generates random numbers between the given values
+ *
+ * @param {number} min_val - Minimum random value
+ * @param {number} max_val - Maximum random value
+ * @returns {number} Returns the random number generated
+ */
+function random(min_val, max_val) {
+  return (Math.floor(Math.random() * (max_val - min_val)) + min_val);
 }
 
 /**
@@ -46,12 +47,33 @@ function drawSegment(startPoint, endPoint, grid, CONTEXT) {
  */
 function startRandomWalk(grid, CONTEXT, CANVAS) {
   let startPoint = new PointOnRandomWalk();
-  let endPoint = new PointOnRandomWalk();
+  let endPoint = new PointOnRandomWalk(5, 5);
   startPoint.draw(grid, CONTEXT);
-  while ((Math.abs(endPoint.xCoord) < CANVAS.width) ||
-    (Math.abs(endPoint.yCoord) < CANVAS.height)) {
+  let segment = new SegmentOnRandomWalk(startPoint, endPoint);
+  segment.draw(grid, CONTEXT);
 
-  }
+  // while ((Math.abs(endPoint.xCoord) < CANVAS.width) ||
+  //   (Math.abs(endPoint.yCoord) < CANVAS.height)) {
+  //   let direction = random(1, 4);
+  //   switch (direction) {
+  //     case 1:
+  //       up
+  //       break;
+  //     case 2:
+  //       down
+  //       break;
+  //     case 3:
+  //       right
+  //       break;
+  //     case 4:
+  //       left
+  //       break;
+
+  //     default:
+  //       console.error('Error: Unexpected direction');
+  //       break;
+  //   }
+  // }
 }
 
 /**
@@ -64,7 +86,7 @@ function mainBrowser() {
     CANVAS.width = window.innerWidth - 100;
     CANVAS.height = window.innerHeight - 175;
 
-    let grid = new GridOnRandomWalk(100);
+    let grid = new GridOnRandomWalk(50);
     grid.draw(CONTEXT, CANVAS);
     startRandomWalk(grid, CONTEXT, CANVAS);
   }

@@ -35,7 +35,7 @@ describe('Segment Class', () => {
 
     it('Segment has a endPoint', () => {
       expectOnSegmentTest(MY_SEGMENT).to.have.property('endPoint');
-      expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.deep.equal(END_POINT);
+      expectOnSegmentTest(MY_SEGMENT.endPoint).to.be.deep.equal(END_POINT);
     });
   });
 });

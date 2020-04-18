@@ -38,6 +38,7 @@ class Point {
    * @param {*} CONTEXT - Canvas context
    * @memberof Point
    */
+  /* istanbul ignore next */
   draw(grid, CONTEXT) {
     CONTEXT.beginPath();
     CONTEXT.fillStyle = RED_POINT;

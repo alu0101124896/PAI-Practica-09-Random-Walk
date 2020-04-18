@@ -10,15 +10,15 @@
 
 "use strict";
 
+// let DirectionOnGridClass;
+// if (typeof require !== 'undefined') { // Execution in node
+//   DirectionOnGridClass = require('./direction.js').Direction;
+// } else { // Execution in browser
+//   DirectionOnGridClass = Direction;
+// }
+
 const BLACK_LINE = 'black';
 const GRID_LINE_WIDTH = 1;
-
-let DirectionOnGridClass;
-if (typeof require !== 'undefined') { // Execution in node
-  DirectionOnGridClass = require('../src/direction.js').Direction;
-} else { // Execution in browser
-  DirectionOnGridClass = Direction;
-}
 
 /**
  * @description Class representing a grid
