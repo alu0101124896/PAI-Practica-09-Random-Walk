@@ -41,4 +41,16 @@ describe('Direction Class', () => {
       expectOnDirectionTest(MY_DIRECTION.yDir).to.be.equal(0);
     });
   });
+
+  describe('Non default property values', () => {
+    const MY_DIRECTION = new ClassDirectionOnDirectionTest(0, -1);
+
+    it('Modifies default xDir correctly', () => {
+      expectOnDirectionTest(MY_DIRECTION.xDir).to.be.equal(0);
+    });
+
+    it('Modifies default yDir correctly', () => {
+      expectOnDirectionTest(MY_DIRECTION.yDir).to.be.equal(-1);
+    });
+  });
 });
