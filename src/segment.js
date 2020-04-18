@@ -10,12 +10,12 @@
 
 "use strict";
 
-let PointOnSegmentClass;
-if (typeof require !== 'undefined') { // Execution in node
-  PointOnSegmentClass = require('../src/point.js').Point;
-} else { // Execution in browser
-  PointOnSegmentClass = Point;
-}
+// let PointOnSegmentClass;
+// if (typeof require !== 'undefined') { // Execution in node
+//   PointOnSegmentClass = require('../src/point.js').Point;
+// } else { // Execution in browser
+//   PointOnSegmentClass = Point;
+// }
 
 /**
  * @description Class representing a segment
@@ -24,7 +24,8 @@ if (typeof require !== 'undefined') { // Execution in node
  */
 class Segment {
 
-  constructor() {
+  constructor(startPoint) {
+    this.startPoint = startPoint;
   }
 }
 

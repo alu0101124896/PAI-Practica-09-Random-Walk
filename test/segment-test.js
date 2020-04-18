@@ -23,12 +23,13 @@ if (typeof require !== 'undefined') { // Execution in node
 }
 
 describe('Segment Class', () => {
-  describe('Default properties', () => {
-    const MY_SEGMENT = new SegmentOnSegmentTest();
+  describe('Properties', () => {
+    const START_POINT = new PointOnSegmentTest();
+    const MY_SEGMENT = new SegmentOnSegmentTest(START_POINT);
 
-    it('Point has a startPoint', () => {
+    it('Segment has a startPoint', () => {
       expectOnSegmentTest(MY_SEGMENT).to.have.property('startPoint');
-      expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.a('Point');
+      expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.deep.equal(START_POINT);
     });
   });
 });
