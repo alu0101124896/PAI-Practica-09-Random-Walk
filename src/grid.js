@@ -32,6 +32,7 @@ class Grid {
   /**
    * @description Constructor that creates an instance of a grid.
    *
+   * @param {number} [stepLenght=20]
    * @memberof Grid
    */
   constructor(stepLenght = 20) {

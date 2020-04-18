@@ -20,7 +20,7 @@ class Point {
   /**
    * @description Constructor that creates an instance of a point.
    *
-   * @param {number} [xCoord=1]
+   * @param {number} [xCoord=0]
    * @param {number} [yCoord=0]
    * @memberof Point
    */

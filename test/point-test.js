@@ -32,5 +32,13 @@ describe('Point Class', () => {
       expectOnPointTest(MY_POINT).to.have.property('yCoord');
       expectOnPointTest(MY_POINT.yCoord).to.be.a('number');
     });
+
+    it('Default xCoord is 0', () => {
+      expectOnPointTest(MY_POINT.xCoord).to.be.equal(0);
+    });
+
+    it('Default yCoord is 0', () => {
+      expectOnPointTest(MY_POINT.yCoord).to.be.equal(0);
+    });
   });
 });
