@@ -41,4 +41,5 @@ describe('Point Class', () => {
       expectOnPointTest(MY_POINT.yCoord).to.be.equal(0);
     });
   });
+
 });
