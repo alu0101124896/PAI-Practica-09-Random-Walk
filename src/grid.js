@@ -21,7 +21,8 @@ class Grid {
    *
    * @memberof Grid
    */
-  constructor() {
+  constructor(unitSize = 20) {
+    this.unitSize = unitSize;
   }
 }
 
