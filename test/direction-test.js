@@ -10,18 +10,18 @@
 "use strict";
 
 let expectOnDirectionTest;
-let ClassDirectionOnDirectionTest;
+let DirectionOnDirectionTest;
 if (typeof require !== 'undefined') { // Execution in node
   expectOnDirectionTest = require('chai').expect;
-  ClassDirectionOnDirectionTest = require('../src/direction.js').Direction;
+  DirectionOnDirectionTest = require('../src/direction.js').Direction;
 } else { // Execution in browser
   expectOnDirectionTest = expect;
-  ClassDirectionOnDirectionTest = Direction;
+  DirectionOnDirectionTest = Direction;
 }
 
 describe('Direction Class', () => {
   describe('Default properties', () => {
-    const MY_DIRECTION = new ClassDirectionOnDirectionTest();
+    const MY_DIRECTION = new DirectionOnDirectionTest();
 
     it('Direction has a xDir', () => {
       expectOnDirectionTest(MY_DIRECTION).to.have.property('xDir');
@@ -43,14 +43,14 @@ describe('Direction Class', () => {
   });
 
   describe('Non default property values', () => {
-    const MY_DIRECTION = new ClassDirectionOnDirectionTest(0, -1);
+    const WEST = new DirectionOnDirectionTest(0, -1);
 
     it('Modifies default xDir correctly', () => {
-      expectOnDirectionTest(MY_DIRECTION.xDir).to.be.equal(0);
+      expectOnDirectionTest(WEST.xDir).to.be.equal(0);
     });
 
     it('Modifies default yDir correctly', () => {
-      expectOnDirectionTest(MY_DIRECTION.yDir).to.be.equal(-1);
+      expectOnDirectionTest(WEST.yDir).to.be.equal(-1);
     });
   });
 });

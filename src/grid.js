@@ -9,6 +9,13 @@
 
 "use strict";
 
+let DirectionOnGridClass;
+if (typeof require !== 'undefined') { // Execution in node
+  DirectionOnGridClass = require('../src/direction.js').Direction;
+} else { // Execution in browser
+  DirectionOnGridClass = Direction;
+}
+
 /**
  * @description Class representing a grid
  *

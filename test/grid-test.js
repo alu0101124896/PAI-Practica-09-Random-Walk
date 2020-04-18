@@ -10,18 +10,21 @@
 "use strict";
 
 let expectOnGridTest;
-let ClassGridOnGridTest;
+let DirectionOnGridClass;
+let GridOnGridTest;
 if (typeof require !== 'undefined') { // Execution in node
   expectOnGridTest = require('chai').expect;
-  ClassGridOnGridTest = require('../src/grid.js').Grid;
+  DirectionOnGridClass = require('../src/direction.js').Direction;
+  GridOnGridTest = require('../src/grid.js').Grid;
 } else { // Execution in browser
   expectOnGridTest = expect;
-  ClassGridOnGridTest = Grid;
+  DirectionOnGridClass = Direction;
+  GridOnGridTest = Grid;
 }
 
 describe('Grid Class', () => {
   describe('Default properties', () => {
-    const MY_GRID = new ClassGridOnGridTest();
+    const MY_GRID = new GridOnGridTest();
 
     it('Grid has a stepLenght', () => {
       expectOnGridTest(MY_GRID).to.have.property('stepLenght');
@@ -30,6 +33,15 @@ describe('Grid Class', () => {
 
     it('Default stepLenght is 20', () => {
       expectOnGridTest(MY_GRID.stepLenght).to.be.equal(20);
+    });
+  });
+
+  describe('Non default property values', () => {
+    const STEP_LENGHT = 50;
+    const MY_GRID = new GridOnGridTest(STEP_LENGHT);
+
+    it('Modifies default stepLenght correctly', () => {
+      expectOnGridTest(MY_GRID.stepLenght).to.be.equal(STEP_LENGHT);
     });
   });
 });
