@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a direction class for Random Walk. More info about it here: https://en.wikipedia.org/wiki/Random_walk
+ * @description This program implements a direction class for Random Walk. More
+ *  info about it here: https://en.wikipedia.org/wiki/Random_walk
  */
 
 "use strict";
