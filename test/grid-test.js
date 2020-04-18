@@ -23,13 +23,13 @@ describe('ClassGridOnGridTest Class', () => {
   describe('Default properties', () => {
     const MY_GRID = new ClassGridOnGridTest();
 
-    it('ClassGridOnGridTest has a unitSize', () => {
-      expectOnGridTest(MY_GRID).to.have.property('unitSize');
-      expectOnGridTest(MY_GRID.unitSize).to.be.a('number');
+    it('ClassGridOnGridTest has a stepLenght', () => {
+      expectOnGridTest(MY_GRID).to.have.property('stepLenght');
+      expectOnGridTest(MY_GRID.stepLenght).to.be.a('number');
     });
 
-    it('Default unitSize is 20', () => {
-      expectOnGridTest(MY_GRID.unitSize).to.be.equal(20);
+    it('Default stepLenght is 20', () => {
+      expectOnGridTest(MY_GRID.stepLenght).to.be.equal(20);
     });
   });
 });

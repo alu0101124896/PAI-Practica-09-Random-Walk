@@ -21,9 +21,11 @@ class Grid {
    *
    * @memberof Grid
    */
-  constructor(unitSize = 20) {
-    this.unitSize = unitSize;
+  constructor(stepLenght = 20) {
+    this.stepLenght = stepLenght;
   }
+
+
 }
 
 if (typeof exports !== 'undefined') { // Execution in node
