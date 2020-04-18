@@ -19,9 +19,13 @@ if (typeof require !== 'undefined') { // Execution in node
   ClassGridOnGridTest = Grid;
 }
 
-describe('Grid Class', () => {
+describe('ClassGridOnGridTest Class', () => {
   describe('Default properties', () => {
     const MY_GRID = new ClassGridOnGridTest();
 
+    it('ClassGridOnGridTest has a unitSize', () => {
+      expectOnGridTest(MY_GRID).to.have.property('unitSize');
+      expectOnGridTest(MY_GRID.unitSize).to.be.a('number');
+    });
   });
 });
