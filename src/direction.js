@@ -21,7 +21,8 @@ class Direction {
    *
    * @memberof Direction
    */
-  constructor() {
+  constructor(xDir = 1) {
+    this.xDir = xDir;
   }
 }
 
