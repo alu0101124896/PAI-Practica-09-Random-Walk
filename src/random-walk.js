@@ -11,17 +11,29 @@
 
 "use strict";
 
-// let DirectionOnRandomWalk;
+let PointOnRandomWalk;
+let DirectionOnRandomWalk;
 let GridOnRandomWalk;
 if (typeof require !== 'undefined') { // Execution in node
-  // DirectionOnRandomWalk = require('../src/direction.js').Direction;
+  PointOnRandomWalk = require('../src/direction.js').Point;
+  DirectionOnRandomWalk = require('../src/direction.js').Direction;
   GridOnRandomWalk = require('../src/grid.js').Grid;
 } else { // Execution in browser
-  // DirectionOnRandomWalk = Direction;
+  PointOnRandomWalk = Point;
+  DirectionOnRandomWalk = Direction;
   GridOnRandomWalk = Grid;
 }
 
-
+/**
+ * @description Function that generates the random walk
+ *
+ * @param {*} grid
+ * @param {*} CONTEXT
+ * @param {*} CANVAS
+ */
+function startRandomWalk(grid, CONTEXT, CANVAS) {
+  drawPoint(0, 0, CONTEXT);
+}
 
 /**
  * @description Function that starts the execution of the program in browser
@@ -35,6 +47,7 @@ function mainBrowser() {
 
     let grid = new GridOnRandomWalk();
     grid.drawGrid(CONTEXT, CANVAS);
+    startRandomWalk(grid, CONTEXT, CANVAS);
   }
 }
 

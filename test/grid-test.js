@@ -10,15 +10,12 @@
 "use strict";
 
 let expectOnGridTest;
-let DirectionOnGridTest;
 let GridOnGridTest;
 if (typeof require !== 'undefined') { // Execution in node
   expectOnGridTest = require('chai').expect;
-  DirectionOnGridTest = require('../src/direction.js').Direction;
   GridOnGridTest = require('../src/grid.js').Grid;
 } else { // Execution in browser
   expectOnGridTest = expect;
-  DirectionOnGridTest = Direction;
   GridOnGridTest = Grid;
 }
 

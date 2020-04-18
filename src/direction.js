@@ -20,6 +20,8 @@ class Direction {
   /**
    * @description Constructor that creates an instance of a direction.
    *
+   * @param {number} [xDir=1]
+   * @param {number} [yDir=0]
    * @memberof Direction
    */
   constructor(xDir = 1, yDir = 0) {
