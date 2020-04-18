@@ -27,5 +27,9 @@ describe('ClassGridOnGridTest Class', () => {
       expectOnGridTest(MY_GRID).to.have.property('unitSize');
       expectOnGridTest(MY_GRID.unitSize).to.be.a('number');
     });
+
+    it('Default unitSize is 20', () => {
+      expectOnGridTest(MY_GRID.unitSize).to.be.equal(20);
+    });
   });
 });
