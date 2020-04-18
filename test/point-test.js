@@ -27,5 +27,10 @@ describe('Point Class', () => {
       expectOnPointTest(MY_POINT).to.have.property('xCoord');
       expectOnPointTest(MY_POINT.xCoord).to.be.a('number');
     });
+
+    it('Point has a yCoord', () => {
+      expectOnPointTest(MY_POINT).to.have.property('yCoord');
+      expectOnPointTest(MY_POINT.yCoord).to.be.a('number');
+    });
   });
 });
