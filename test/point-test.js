@@ -48,5 +48,9 @@ describe('Point Class', () => {
     it('Modifies default xCoord correctly', () => {
       expectOnPointTest(MY_POINT.xCoord).to.be.equal(5);
     });
+
+    it('Modifies default yCoord correctly', () => {
+      expectOnPointTest(MY_POINT.yCoord).to.be.equal(10);
+    });
   });
 });
