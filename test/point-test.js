@@ -42,4 +42,11 @@ describe('Point Class', () => {
     });
   });
 
+  describe('Non default property values', () => {
+    const MY_POINT = new PointOnPointTest(5, 10);
+
+    it('Modifies default xCoord correctly', () => {
+      expectOnPointTest(MY_POINT.xCoord).to.be.equal(5);
+    });
+  });
 });
