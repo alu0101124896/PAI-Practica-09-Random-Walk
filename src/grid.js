@@ -10,10 +10,8 @@
 
 "use strict";
 
-const BLACK = 'black';
-const RED = 'red';
+const BLACK_LINE = 'black';
 const GRID_LINE_WIDTH = 1;
-const PATH_LINE_WIDTH = 5;
 
 let DirectionOnGridClass;
 if (typeof require !== 'undefined') { // Execution in node
@@ -47,19 +45,19 @@ class Grid {
    * @memberof Grid
    */
   /* istanbul ignore next */
-  drawGrid(CONTEXT, CANVAS) {
+  draw(CONTEXT, CANVAS) {
     CONTEXT.translate(CANVAS.width / 2, CANVAS.height / 2);
     let widthIterator = 0;
     while (widthIterator < CANVAS.width / 2) {
       CONTEXT.beginPath();
-      CONTEXT.strokeStyle = BLACK;
+      CONTEXT.strokeStyle = BLACK_LINE;
       CONTEXT.lineWidth = GRID_LINE_WIDTH;
       CONTEXT.moveTo(widthIterator, -CANVAS.height / 2);
       CONTEXT.lineTo(widthIterator, CANVAS.height / 2);
       CONTEXT.stroke()
 
       CONTEXT.beginPath();
-      CONTEXT.strokeStyle = BLACK;
+      CONTEXT.strokeStyle = BLACK_LINE;
       CONTEXT.lineWidth = GRID_LINE_WIDTH;
       CONTEXT.moveTo(-widthIterator, -CANVAS.height / 2);
       CONTEXT.lineTo(-widthIterator, CANVAS.height / 2);
@@ -70,14 +68,14 @@ class Grid {
     let heightIterator = 0;
     while (heightIterator < CANVAS.height / 2) {
       CONTEXT.beginPath();
-      CONTEXT.strokeStyle = BLACK;
+      CONTEXT.strokeStyle = BLACK_LINE;
       CONTEXT.lineWidth = GRID_LINE_WIDTH;
       CONTEXT.moveTo(-CANVAS.width / 2, heightIterator);
       CONTEXT.lineTo(CANVAS.width / 2, heightIterator);
       CONTEXT.stroke()
 
       CONTEXT.beginPath();
-      CONTEXT.strokeStyle = BLACK;
+      CONTEXT.strokeStyle = BLACK_LINE;
       CONTEXT.lineWidth = GRID_LINE_WIDTH;
       CONTEXT.moveTo(-CANVAS.width / 2, -heightIterator);
       CONTEXT.lineTo(CANVAS.width / 2, -heightIterator);

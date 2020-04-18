@@ -24,15 +24,34 @@ if (typeof require !== 'undefined') { // Execution in node
   GridOnRandomWalk = Grid;
 }
 
+const RED_SEGMENT = 'red';
+const ROUND_SEGMENT = 'round'
+
+function drawSegment(startPoint, endPoint, grid, CONTEXT) {
+  CONTEXT.beginPath();
+  CONTEXT.strokeStyle = RED_SEGMENT;
+  CONTEXT.lineWidth = grid.stepLenght / 4;
+  CONTEXT.lineCap = ROUND_SEGMENT;
+  CONTEXT.moveTo(startPoint.xCoord, startPoint.yCoord);
+  CONTEXT.lineTo(endPoint.xCoord, endPoint.yCoord);
+  CONTEXT.stroke();
+}
+
 /**
  * @description Function that generates the random walk
  *
- * @param {*} grid
- * @param {*} CONTEXT
- * @param {*} CANVAS
+ * @param {Grid} grid - Grid in which the random path is going to be generated
+ * @param {*} CONTEXT - Canvas context
+ * @param {*} CANVAS - Canvas
  */
 function startRandomWalk(grid, CONTEXT, CANVAS) {
-  drawPoint(0, 0, CONTEXT);
+  let startPoint = new PointOnRandomWalk();
+  let endPoint = new PointOnRandomWalk();
+  startPoint.draw(grid, CONTEXT);
+  while ((Math.abs(endPoint.xCoord) < CANVAS.width) ||
+    (Math.abs(endPoint.yCoord) < CANVAS.height)) {
+
+  }
 }
 
 /**
@@ -45,8 +64,8 @@ function mainBrowser() {
     CANVAS.width = window.innerWidth - 100;
     CANVAS.height = window.innerHeight - 175;
 
-    let grid = new GridOnRandomWalk();
-    grid.drawGrid(CONTEXT, CANVAS);
+    let grid = new GridOnRandomWalk(100);
+    grid.draw(CONTEXT, CANVAS);
     startRandomWalk(grid, CONTEXT, CANVAS);
   }
 }
