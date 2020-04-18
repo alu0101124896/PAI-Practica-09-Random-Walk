@@ -25,5 +25,10 @@ if (typeof require !== 'undefined') { // Execution in node
 describe('Segment Class', () => {
   describe('Default properties', () => {
     const MY_SEGMENT = new SegmentOnSegmentTest();
+
+    it('Point has a startPoint', () => {
+      expectOnSegmentTest(MY_SEGMENT).to.have.property('startPoint');
+      expectOnSegmentTest(MY_SEGMENT.startPoint).to.be.a('Point');
+    });
   });
 });
