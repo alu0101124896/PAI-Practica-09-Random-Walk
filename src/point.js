@@ -20,9 +20,11 @@ class Point {
   /**
    * @description Constructor that creates an instance of a point.
    *
+   * @param {number} [xCoord=1]
    * @memberof Point
    */
-  constructor() {
+  constructor(xCoord = 0) {
+    this.xCoord = xCoord;
   }
 }
 
