@@ -32,5 +32,9 @@ describe('Direction Class', () => {
       expectOnDirectionTest(MY_DIRECTION).to.have.property('yDir');
       expectOnDirectionTest(MY_DIRECTION.yDir).to.be.a('number');
     });
+
+    it('Default xDir is 1', () => {
+      expectOnDirectionTest(MY_DIRECTION.xDir).to.be.equal(1);
+    });
   });
 });
