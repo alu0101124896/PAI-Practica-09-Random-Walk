@@ -19,13 +19,18 @@ if (typeof require !== 'undefined') { // Execution in node
   ClassDirectionOnDirectionTest = Direction;
 }
 
-describe('ClassDirectionOnDirectionTest Class', () => {
+describe('Direction Class', () => {
   describe('Default properties', () => {
     const MY_DIRECTION = new ClassDirectionOnDirectionTest();
 
-    it('ClassDirectionOnDirectionTest has a xDir', () => {
+    it('Direction has a xDir', () => {
       expectOnDirectionTest(MY_DIRECTION).to.have.property('xDir');
       expectOnDirectionTest(MY_DIRECTION.xDir).to.be.a('number');
+    });
+
+    it('Direction has a yDir', () => {
+      expectOnDirectionTest(MY_DIRECTION).to.have.property('yDir');
+      expectOnDirectionTest(MY_DIRECTION.yDir).to.be.a('number');
     });
   });
 });

@@ -19,11 +19,11 @@ if (typeof require !== 'undefined') { // Execution in node
   ClassGridOnGridTest = Grid;
 }
 
-describe('ClassGridOnGridTest Class', () => {
+describe('Grid Class', () => {
   describe('Default properties', () => {
     const MY_GRID = new ClassGridOnGridTest();
 
-    it('ClassGridOnGridTest has a stepLenght', () => {
+    it('Grid has a stepLenght', () => {
       expectOnGridTest(MY_GRID).to.have.property('stepLenght');
       expectOnGridTest(MY_GRID.stepLenght).to.be.a('number');
     });
