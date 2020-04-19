@@ -10,13 +10,6 @@
 
 "use strict";
 
-// let DirectionOnGridClass;
-// if (typeof require !== 'undefined') { // Execution in node
-//   DirectionOnGridClass = require('./direction.js').Direction;
-// } else { // Execution in browser
-//   DirectionOnGridClass = Direction;
-// }
-
 const BLACK_LINE = 'black';
 const GRID_LINE_WIDTH = 1;
 
@@ -30,13 +23,14 @@ class Grid {
   /**
    * @description Constructor that creates an instance of a grid.
    *
-   * @param {number} [stepLenght=20]
+   * @param {number} [stepLenght=20] - Lenght from a line of the grid to another
    * @memberof Grid
    */
   constructor(stepLenght = 20) {
     this.stepLenght = stepLenght;
   }
 
+  /* istanbul ignore next */
   /**
    * @description Function that draws the grid
    *
@@ -44,7 +38,6 @@ class Grid {
    * @param {*} CANVAS - Canvas
    * @memberof Grid
    */
-  /* istanbul ignore next */
   draw(CONTEXT, CANVAS) {
     CONTEXT.translate(CANVAS.width / 2, CANVAS.height / 2);
     let widthIterator = 0;

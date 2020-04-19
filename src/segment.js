@@ -39,6 +39,7 @@ class Segment {
     this.endPoint = endPoint;
   }
 
+  /* istanbul ignore next */
   /**
    * @description Function that draws the segment
    *
@@ -46,16 +47,13 @@ class Segment {
    * @param {*} CONTEXT - Canvas context
    * @memberof Segment
    */
-  /* istanbul ignore next */
   draw(grid, CONTEXT) {
     CONTEXT.beginPath();
     CONTEXT.strokeStyle = RED_SEGMENT;
     CONTEXT.lineWidth = grid.stepLenght / 4;
     CONTEXT.lineCap = ROUND_SEGMENT;
-    CONTEXT.moveTo(this.startPoint.xCoord * grid.stepLenght,
-      this.startPoint.yCoord * grid.stepLenght);
-    CONTEXT.lineTo(this.endPoint.xCoord * grid.stepLenght,
-      this.endPoint.yCoord * grid.stepLenght);
+    CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
+    CONTEXT.lineTo(this.endPoint.xCoord, this.endPoint.yCoord);
     CONTEXT.stroke();
   }
 }

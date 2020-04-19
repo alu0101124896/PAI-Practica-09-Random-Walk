@@ -22,8 +22,8 @@ class Point {
   /**
    * @description Constructor that creates an instance of a point.
    *
-   * @param {number} [xCoord=0]
-   * @param {number} [yCoord=0]
+   * @param {number} [xCoord=0] - X coordinate of the point
+   * @param {number} [yCoord=0] - Y coordinate of the point
    * @memberof Point
    */
   constructor(xCoord = 0, yCoord = 0) {
@@ -31,6 +31,7 @@ class Point {
     this.yCoord = yCoord;
   }
 
+  /* istanbul ignore next */
   /**
    * @description Function that draws the point
    *
@@ -38,7 +39,6 @@ class Point {
    * @param {*} CONTEXT - Canvas context
    * @memberof Point
    */
-  /* istanbul ignore next */
   draw(grid, CONTEXT) {
     CONTEXT.beginPath();
     CONTEXT.fillStyle = RED_POINT;

@@ -13,17 +13,14 @@
 
 let PointOnRandomWalk;
 let SegmentOnRandomWalk;
-let DirectionOnRandomWalk;
 let GridOnRandomWalk;
 if (typeof require !== 'undefined') { // Execution in node
   PointOnRandomWalk = require('./point.js').Point;
   SegmentOnRandomWalk = require('./segment.js').Segment;
-  DirectionOnRandomWalk = require('./direction.js').Direction;
   GridOnRandomWalk = require('./grid.js').Grid;
 } else { // Execution in browser
   PointOnRandomWalk = Point;
   SegmentOnRandomWalk = Segment;
-  DirectionOnRandomWalk = Direction;
   GridOnRandomWalk = Grid;
 }
 
@@ -39,41 +36,52 @@ function random(min_val, max_val) {
 }
 
 /**
+ * @description Function that stops the execution the given amount of time
+ *
+ * @param {number} msToWait - Number of miniseconds to stop the execution
+ */
+function sleep(msToWait) {
+  return new Promise(resolve => setTimeout(resolve, msToWait));
+}
+
+/**
  * @description Function that generates the random walk
  *
  * @param {Grid} grid - Grid in which the random path is going to be generated
  * @param {*} CONTEXT - Canvas context
  * @param {*} CANVAS - Canvas
  */
-function startRandomWalk(grid, CONTEXT, CANVAS) {
+async function startRandomWalk(grid, CONTEXT, CANVAS) {
   let startPoint = new PointOnRandomWalk();
-  let endPoint = new PointOnRandomWalk(5, 5);
+  let endPoint = new PointOnRandomWalk();
   startPoint.draw(grid, CONTEXT);
-  let segment = new SegmentOnRandomWalk(startPoint, endPoint);
-  segment.draw(grid, CONTEXT);
+  while ((Math.abs(endPoint.xCoord) < (CANVAS.width / 2)) &&
+    (Math.abs(endPoint.yCoord) < (CANVAS.height / 2))) {
+    startPoint = Object.assign(Object.create(
+      Object.getPrototypeOf(endPoint)), endPoint);
+    let direction = random(0, 4);
+    switch (direction) {
+      case 0:
+        endPoint.yCoord -= grid.stepLenght; // Up
+        break;
+      case 1:
+        endPoint.yCoord += grid.stepLenght; // Down
+        break;
+      case 2:
+        endPoint.xCoord += grid.stepLenght; // Right
+        break;
+      case 3:
+        endPoint.xCoord -= grid.stepLenght; // Left
+        break;
 
-  // while ((Math.abs(endPoint.xCoord) < CANVAS.width) ||
-  //   (Math.abs(endPoint.yCoord) < CANVAS.height)) {
-  //   let direction = random(1, 4);
-  //   switch (direction) {
-  //     case 1:
-  //       up
-  //       break;
-  //     case 2:
-  //       down
-  //       break;
-  //     case 3:
-  //       right
-  //       break;
-  //     case 4:
-  //       left
-  //       break;
-
-  //     default:
-  //       console.error('Error: Unexpected direction');
-  //       break;
-  //   }
-  // }
+      default:
+        console.error('Error: Unexpected direction');
+        break;
+    }
+    await sleep(grid.stepLenght);
+    let segment = new SegmentOnRandomWalk(startPoint, endPoint);
+    segment.draw(grid, CONTEXT);
+  }
 }
 
 /**
@@ -86,7 +94,7 @@ function mainBrowser() {
     CANVAS.width = window.innerWidth - 100;
     CANVAS.height = window.innerHeight - 175;
 
-    let grid = new GridOnRandomWalk(50);
+    let grid = new GridOnRandomWalk(20);
     grid.draw(CONTEXT, CANVAS);
     startRandomWalk(grid, CONTEXT, CANVAS);
   }
