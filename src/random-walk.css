@@ -4,7 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This is a css file for the Random Walk. More info about it here: https://en.wikipedia.org/wiki/Random_walk
+ * @description This is a css file for the Random Walk. More info about it here:
+ *  https://en.wikipedia.org/wiki/Random_walk
  */
 
 html, body {
@@ -16,13 +17,20 @@ h1 {
   color: black;
 }
 
+h2 {
+  text-align: center;
+  color: black;
+}
+
 p {
   text-align: center;
   display: block;
+  padding-left: 25%;
+  width: 50%;
 }
 
 body {
-  overflow: hidden;
+  overflow: auto;
   height: inherit;
 }
 
