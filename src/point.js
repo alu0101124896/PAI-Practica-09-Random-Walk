@@ -48,6 +48,7 @@ class Point {
   }
 }
 
+/* istanbul ignore next */
 if (typeof exports !== 'undefined') { // Execution in node
   exports.Point = Point;
 }
