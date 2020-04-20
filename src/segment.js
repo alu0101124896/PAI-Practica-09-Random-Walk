@@ -20,7 +20,7 @@ else { // Execution in browser
   PointOnSegmentClass = Point;
 }
 
-const RED_SEGMENT = 'red';
+const DARKGREEN_SEGMENT = 'darkgreen';
 const ROUND_SEGMENT = 'round'
 
 /**
@@ -52,7 +52,7 @@ class Segment {
    */
   draw(grid, CONTEXT) {
     CONTEXT.beginPath();
-    CONTEXT.strokeStyle = RED_SEGMENT;
+    CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
     CONTEXT.lineWidth = grid.stepLenght / 4;
     CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
