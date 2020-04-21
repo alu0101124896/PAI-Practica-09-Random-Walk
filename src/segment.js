@@ -24,6 +24,17 @@ const DARKGREEN_SEGMENT = 'darkgreen';
 const ROUND_SEGMENT = 'round'
 
 /**
+ * @description Function that generates random numbers between the given values
+ *
+ * @param {number} min_val - Minimum random value
+ * @param {number} max_val - Maximum random value
+ * @returns {number} Returns the random number generated
+ */
+function randomColor(min_val, max_val) {
+  return (Math.floor(Math.random() * (max_val - min_val)) + min_val);
+}
+
+/**
  * @description Class representing a segment
  *
  * @class Segment
