@@ -84,7 +84,8 @@ class Segment {
           break;
       }
     }
-    CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
+    CONTEXT.strokeStyle = 'rgb(' + randomColor(0, 255) + ',' + randomColor(0, 255)
+      + ',' + randomColor(0, 255) + ')';
     CONTEXT.lineWidth = grid.stepLenght / 8;
     // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
