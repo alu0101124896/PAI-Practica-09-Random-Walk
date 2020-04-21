@@ -46,9 +46,11 @@ class Face {
    * @memberof Face
    */
   draw(CONTEXT) {
-    const rightEye = new EyeOnFaceClass(arguments);
+
+
+    const rightEye = new EyeOnFaceClass(10, 10, 5);
     rightEye.draw(CONTEXT);
-    const leftEye = new EyeOnFaceClass(arguments);
+    const leftEye = new EyeOnFaceClass(40, 10, 5);
     leftEye.draw(CONTEXT);
   }
 }
