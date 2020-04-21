@@ -101,5 +101,5 @@ function mainBrowser() {
 }
 
 if (typeof require !== 'undefined') { // Execution in node
-  console.error("Error: this program can not be executed in Node");
+  console.error("Error: this program can not be executed in Node.");
 }
