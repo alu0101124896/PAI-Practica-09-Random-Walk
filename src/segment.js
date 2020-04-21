@@ -73,10 +73,10 @@ class Segment {
           break;
       }
     }
-    CONTEXT.strokeStyle = 'rgb(' + ((255 - numOfSegments) / 2) + ',' +
-      (255 - numOfSegments) + ',0)';
+    CONTEXT.strokeStyle = 'rgb(' + ((255 - (numOfSegments % 255)) / 2) + ',' +
+      (255 - (numOfSegments % 255)) + ',0)';
 
-    CONTEXT.lineWidth = grid.stepLenght / 8;
+    CONTEXT.lineWidth = grid.stepLenght / 6;
     // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
     CONTEXT.lineTo(this.endPoint.xCoord, this.endPoint.yCoord);
