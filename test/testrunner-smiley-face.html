@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tabares Hernández, Sergio</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+
+<body>
+  <h1>Smiley Face - Unit Tests - Tabares Hernández, Sergio</h1>
+  <p><a href="../www/index.html">Return to index</a> </p>
+  <div id="mocha"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+  <script>
+    mocha.setup("bdd");
+  </script>
+
+  <!-- load code you want to test here -->
+  <script src="../src/eye.js"></script>
+  <script src="../src/eyebrow.js"></script>
+  <script src="../src/mouth.js"></script>
+  <script src="../src/face.js"></script>
+
+  <script>
+    const expect = chai.expect;
+  </script>
+
+  <!-- load your test files here -->
+  <script src="./eye-test.js"></script>
+  <script src="./eyebrow-test.js"></script>
+  <script src="./mouth-test.js"></script>
+  <script src="./face-test.js"></script>
+
+  <script>
+    mocha.run();
+  </script>
+</body>
+
+</html>
