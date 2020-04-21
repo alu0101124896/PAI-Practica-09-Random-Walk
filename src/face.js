@@ -10,6 +10,8 @@
 
 "use strict";
 
+const BLACK_FACE = 'black';
+
 let EyeOnFaceClass;
 if (typeof require !== 'undefined') { // Execution in node
   EyeOnFaceClass = require('./eye.js').Eye;
@@ -46,7 +48,11 @@ class Face {
    * @memberof Face
    */
   draw(CONTEXT) {
-
+    CONTEXT.beginPath();
+    CONTEXT.strokeStyle = BLACK;
+    CONTEXT.ellipse(this.xCoord, this.yCoord, this.radius, this.radius, 0, 0,
+      Math.PI * 2);
+    CONTEXT.stroke();
 
     const rightEye = new EyeOnFaceClass(10, 10, 5);
     rightEye.draw(CONTEXT);
