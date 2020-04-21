@@ -55,6 +55,7 @@ async function startRandomWalk(grid, CONTEXT, CANVAS) {
   let startPoint = new PointOnRandomWalk();
   let endPoint = new PointOnRandomWalk();
   startPoint.draw(grid, CONTEXT);
+  let numOfSegments = 0;
   while ((Math.abs(endPoint.xCoord) < (CANVAS.width / 2)) &&
     (Math.abs(endPoint.yCoord) < (CANVAS.height / 2))) {
     startPoint = Object.assign(Object.create(
@@ -80,7 +81,8 @@ async function startRandomWalk(grid, CONTEXT, CANVAS) {
     }
     await sleep(grid.stepLenght);
     let segment = new SegmentOnRandomWalk(startPoint, endPoint);
-    segment.draw(grid, CONTEXT);
+    numOfSegments++;
+    segment.draw(numOfSegments, grid, CONTEXT);
   }
 }
 
@@ -94,7 +96,7 @@ function mainBrowser() {
     CANVAS.width = window.innerWidth - 100;
     CANVAS.height = window.innerHeight - 175;
 
-    let grid = new GridOnRandomWalk(20);
+    let grid = new GridOnRandomWalk(50);
     grid.draw(CONTEXT, CANVAS);
     startRandomWalk(grid, CONTEXT, CANVAS);
   }

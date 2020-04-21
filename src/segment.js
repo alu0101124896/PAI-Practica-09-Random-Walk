@@ -46,15 +46,36 @@ class Segment {
   /**
    * @description Function that draws the segment
    *
+   * @param {number} numOfSegments - segment number to decorate properly
    * @param {Grid} grid - Grid where the segment is located
    * @param {*} CONTEXT - Canvas context
    * @memberof Segment
    */
-  draw(grid, CONTEXT) {
+  draw(numOfSegments, grid, CONTEXT) {
     CONTEXT.beginPath();
+    if (numOfSegments > 5) {
+      switch (numOfSegments % 4) {
+        case 0:
+          CONTEXT.setLineDash([]);
+          break;
+        case 1:
+          CONTEXT.setLineDash([7, 7]);
+          break;
+        case 2:
+          CONTEXT.setLineDash([10, 5]);
+          break;
+        case 3:
+          CONTEXT.setLineDash([15, 3, 3, 3]);
+          break;
+
+        default:
+          console.log('Error: Unknoun number on setLineDash');
+          break;
+      }
+    }
     CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
     CONTEXT.lineWidth = grid.stepLenght / 4;
-    CONTEXT.lineCap = ROUND_SEGMENT;
+    // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
     CONTEXT.lineTo(this.endPoint.xCoord, this.endPoint.yCoord);
     CONTEXT.stroke();
