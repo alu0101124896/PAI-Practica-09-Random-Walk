@@ -1,32 +1,38 @@
 /**
- * @file circunference-p09.js
+ * @file face.js
  * @author Sergio Tabares Hernández <alu0101124896@ull.edu.es>
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a circunference class for the smiley
+ * @description This program implements a face class for the smiley
  *  face.
  */
 
 "use strict";
 
-const BLACK_CIRCUNFERENCE = 'black';
+let EyeOnFaceClass;
+if (typeof require !== 'undefined') { // Execution in node
+  EyeOnFaceClass = require('./eye.js').Eye;
+} else { // Execution in browser
+  EyeOnFaceClass = Eye;
+}
 
 /**
  * @description Class representing a point
  *
- * @class Circunference
+ * @class Face
  */
-class Circunference {
+class Face {
 
   /**
    * @description Constructor that creates an instance of a point.
    *
    * @param {number} [xCoord=0] - X coordinate of the point
    * @param {number} [yCoord=0] - Y coordinate of the point
-   * @memberof Circunference
+   * @param {number} [radius=5] - Y coordinate of the point
+   * @memberof Face
    */
-  constructor(xCoord = 0, yCoord = 0, radius = 5) {
+  constructor(xCoord = 0, yCoord = 0, radius = 50) {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.radius = radius;
@@ -34,22 +40,20 @@ class Circunference {
 
   /* istanbul ignore next */
   /**
-   * @description Function that draws the point
+   * @description Function that draws the face
    *
-   * @param {Grid} grid - Grid where the point is located
    * @param {*} CONTEXT - Canvas context
-   * @memberof Circunference
+   * @memberof Face
    */
-  draw(grid, CONTEXT) {
-    CONTEXT.beginPath();
-    CONTEXT.fillStyle = BLACK_CIRCUNFERENCE;
-    CONTEXT.ellipse(this.xCoord, this.yCoord, grid.stepLenght / 4,
-      grid.stepLenght / 4, 0, 0, Math.PI * 2);
-    CONTEXT.fill();
+  draw(CONTEXT) {
+    const rightEye = new EyeOnFaceClass(arguments);
+    rightEye.draw(CONTEXT);
+    const leftEye = new EyeOnFaceClass(arguments);
+    leftEye.draw(CONTEXT);
   }
 }
 
 /* istanbul ignore next */
 if (typeof exports !== 'undefined') { // Execution in node
-  exports.Circunference = Circunference;
+  exports.Face = Face;
 }
