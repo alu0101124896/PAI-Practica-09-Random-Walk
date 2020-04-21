@@ -4,30 +4,29 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program implements a eye class for the smiley
- *  eye.
+ * @description This program implements a eye class for the smiley face.
  */
 
 "use strict";
 
-const BLACK = 'black';
+const BLACK_EYE = 'black';
 
 /**
- * @description Class representing a point
+ * @description Class representing an eye
  *
  * @class Eye
  */
 class Eye {
 
   /**
-   * @description Constructor that creates an instance of a point.
+   * @description Constructor that creates an instance of a eye.
    *
-   * @param {number} [xCoord=0] - X coordinate of the point
-   * @param {number} [yCoord=0] - Y coordinate of the point
-   * @param {number} [radius=5] - Y coordinate of the point
+   * @param {number} xCoord - X coordinate of the eye
+   * @param {number} yCoord - Y coordinate of the eye
+   * @param {number} radius - Radius of the eye
    * @memberof Eye
    */
-  constructor(xCoord, yCoord, radius = 5) {
+  constructor(xCoord, yCoord, radius) {
     this.xCoord = xCoord;
     this.yCoord = yCoord;
     this.radius = radius;
@@ -42,7 +41,7 @@ class Eye {
    */
   draw(CONTEXT) {
     CONTEXT.beginPath();
-    CONTEXT.fillStyle = BLACK;
+    CONTEXT.fillStyle = BLACK_EYE;
     CONTEXT.ellipse(this.xCoord, this.yCoord, this.radius, this.radius, 0, 0,
       Math.PI * 2);
     CONTEXT.fill();

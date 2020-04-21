@@ -28,7 +28,8 @@ function mainBrowser() {
     CANVAS.width = window.innerHeight - 175;
     CANVAS.height = window.innerHeight - 175;
 
-    const face = new FaceOnEjercicioP09(CANVAS.width/2, CANVAS.width/2);
+    const face = new FaceOnEjercicioP09(CANVAS.width / 2, CANVAS.height / 2,
+      (CANVAS.width * 0.6));
     face.draw(CONTEXT);
   }
 }
