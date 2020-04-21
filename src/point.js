@@ -10,7 +10,7 @@
 
 "use strict";
 
-const DARKGREEN_POINT = 'darkgreen';
+const GREEN_POINT = 'rgb(127,255,0)';
 
 /**
  * @description Class representing a point
@@ -41,9 +41,9 @@ class Point {
    */
   draw(grid, CONTEXT) {
     CONTEXT.beginPath();
-    CONTEXT.fillStyle = DARKGREEN_POINT;
-    CONTEXT.ellipse(this.xCoord, this.yCoord, grid.stepLenght / 4,
-      grid.stepLenght / 4, 0, 0, Math.PI * 2);
+    CONTEXT.fillStyle = GREEN_POINT;
+    CONTEXT.ellipse(this.xCoord, this.yCoord, grid.stepLenght / 2,
+      grid.stepLenght / 2, 0, 0, Math.PI * 2);
     CONTEXT.fill();
   }
 }
