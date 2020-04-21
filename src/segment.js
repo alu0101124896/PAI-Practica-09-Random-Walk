@@ -21,18 +21,7 @@ else { // Execution in browser
 }
 
 const DARKGREEN_SEGMENT = 'darkgreen';
-const ROUND_SEGMENT = 'round'
-
-/**
- * @description Function that generates random numbers for the random color
- *
- * @param {number} min_val - Minimum random value
- * @param {number} max_val - Maximum random value
- * @returns {number} Returns the random number generated
- */
-function randomColor(min_val, max_val) {
-  return (Math.floor(Math.random() * (max_val - min_val)) + min_val);
-}
+const ROUND_SEGMENT = 'round';
 
 /**
  * @description Class representing a segment
@@ -84,12 +73,9 @@ class Segment {
           break;
       }
     }
-    if (numOfSegments < 5) {
-      CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
-    } else {
-      CONTEXT.strokeStyle = 'rgb(' + randomColor(0, 255) + ',' +
-        randomColor(0, 255) + ',' + randomColor(0, 255) + ')';
-    }
+    CONTEXT.strokeStyle = 'rgb(' + 255 - numOfSegments / 2 + ',' +
+      255 - numOfSegments + ',0)';
+
     CONTEXT.lineWidth = grid.stepLenght / 8;
     // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
