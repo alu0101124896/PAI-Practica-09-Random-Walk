@@ -96,7 +96,7 @@ function mainBrowser() {
     CANVAS.width = window.innerWidth - 100;
     CANVAS.height = window.innerHeight - 175;
 
-    let grid = new GridOnRandomWalk(10);
+    let grid = new GridOnRandomWalk(20);
     grid.draw(CONTEXT, CANVAS);
     startRandomWalk(grid, CONTEXT, CANVAS);
   }
