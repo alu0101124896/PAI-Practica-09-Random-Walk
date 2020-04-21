@@ -24,7 +24,7 @@ const DARKGREEN_SEGMENT = 'darkgreen';
 const ROUND_SEGMENT = 'round'
 
 /**
- * @description Function that generates random numbers between the given values
+ * @description Function that generates random numbers for the random color
  *
  * @param {number} min_val - Minimum random value
  * @param {number} max_val - Maximum random value
@@ -84,8 +84,12 @@ class Segment {
           break;
       }
     }
-    CONTEXT.strokeStyle = 'rgb(' + randomColor(0, 255) + ',' + randomColor(0, 255)
-      + ',' + randomColor(0, 255) + ')';
+    if (numOfSegments < 5) {
+      CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
+    } else {
+      CONTEXT.strokeStyle = 'rgb(' + randomColor(0, 255) + ',' +
+        randomColor(0, 255) + ',' + randomColor(0, 255) + ')';
+    }
     CONTEXT.lineWidth = grid.stepLenght / 8;
     // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
