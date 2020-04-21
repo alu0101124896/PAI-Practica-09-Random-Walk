@@ -59,13 +59,13 @@ class Segment {
           CONTEXT.setLineDash([]);
           break;
         case 1:
-          CONTEXT.setLineDash([7, 7]);
+          CONTEXT.setLineDash([5, 5]);
           break;
         case 2:
           CONTEXT.setLineDash([10, 5]);
           break;
         case 3:
-          CONTEXT.setLineDash([15, 3, 3, 3]);
+          CONTEXT.setLineDash([5, 3, 3, 3]);
           break;
 
         default:
@@ -74,7 +74,7 @@ class Segment {
       }
     }
     CONTEXT.strokeStyle = DARKGREEN_SEGMENT;
-    CONTEXT.lineWidth = grid.stepLenght / 4;
+    CONTEXT.lineWidth = grid.stepLenght / 8;
     // CONTEXT.lineCap = ROUND_SEGMENT;
     CONTEXT.moveTo(this.startPoint.xCoord, this.startPoint.yCoord);
     CONTEXT.lineTo(this.endPoint.xCoord, this.endPoint.yCoord);
