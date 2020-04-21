@@ -25,8 +25,14 @@ function mainBrowser() {
   const CANVAS = document.getElementById("canvas");
   if (CANVAS.getContext) {
     const CONTEXT = CANVAS.getContext("2d");
-    CANVAS.width = window.innerHeight - 175;
-    CANVAS.height = window.innerHeight - 175;
+    if (window.innerWidth < window.innerHeight)
+    {
+      CANVAS.width = window.innerWidth - 175;
+      CANVAS.height = window.innerWidth - 175;
+    } else {
+      CANVAS.width = window.innerHeight - 175;
+      CANVAS.height = window.innerHeight - 175;
+    }
 
     const face = new FaceOnEjercicioP09(CANVAS.width / 2, CANVAS.height / 2,
       (CANVAS.width * 0.6));
