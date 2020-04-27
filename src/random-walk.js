@@ -4,9 +4,8 @@
  * @since Spring 2020
  * @summary University of La Laguna
  * @summary Computer Science - Interactive Aplication Programing
- * @description This program gives seven cards to seven poker hands and seachs
- *  for straights on them. More info about it here:
- *  https://en.wikipedia.org/wiki/Texas_hold_%27em
+ * @description This program implements the visualization of a Random Walk. More
+ *  info about it here: https://en.wikipedia.org/wiki/Random_walk
  */
 
 "use strict";
